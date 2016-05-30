@@ -11,6 +11,7 @@
     "colors": "^1.1.2",
     "cssnano": "^3.5.2",
     "eyeglass": "^0.8.2",
+    "flickity": "^1.2.1",
     "jshint": "^2.9.2",
     "livereload": "^0.4.1",
     "minifyify": "^7.3.3",
@@ -25,14 +26,14 @@
   "scripts": {
     "prebuild:css": "mkdir -p public/css && node scripts/eyeglass.js",
     "build:css": "postcss --use autoprefixer -b 'last 2 versions' < public/css/styles.css | postcss --use cssnano > public/css/styles.min.css",
-    "build": "npm run build:css | say -v 'Cellos' 'Lalalalalalalalala' && npm run build:browserify ",
+    "build": "npm run build:css && npm run build:browserify ",
     "build:watch": "watch 'npm run build' src/",
     "livereload": "livereload public/css/",
     "lint": "jshint src/js/ ",
     "build:browserify": "mkdir -p public/js && browserify src/js/main.js -d -p [minifyify --map bundle.js.map --output public/js/bundle.js.map] > public/js/bundle.js ",
     "build:js": "watch 'npm run build:browserify' src/js",
     "prebuild:js": "npm run lint",
-    "sprite":"svg-sprite --css --css-render-scss --css-render-scss-dest=../src/sass/_sprite.scss --css-sprite=../img/sprite.svg src/img/*.svg && mv img public/",
-    "build:sass":"watch 'npm run build:css' src/sass/"
+    "sprite": "svg-sprite --css --css-render-scss --css-render-scss-dest=../src/sass/_sprite.scss --css-sprite=../img/sprite.svg src/img/*.svg && mv img public/",
+    "build:sass": "watch 'npm run build:css' src/sass/"
   }
 }

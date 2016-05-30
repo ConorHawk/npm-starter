@@ -18,7 +18,7 @@ sass.render(options, function(error, result) {
 	if(!error){
       fs.writeFile('public/css/styles.css', result.css, function(err){
         if(!err){
-          console.log('Stylesheet successfully created'.rainbow)
+          console.log('Stylesheet successfully created'.white.bold.bgGreen)
         } else { console.log(err)}
       });
     } else { console.log(error)}
