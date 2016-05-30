@@ -1,0 +1,6 @@
+@mixin hidetext {
+	text-indent:110%;
+	text-transform:capitalize;
+	white-space:nowrap;
+	overflow:hidden;
+}
